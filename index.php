@@ -1,4 +1,5 @@
 <?php
+// fetch DB data
 try {
     require_once 'includes/dbh.inc.php';
 
@@ -9,7 +10,8 @@ try {
 
     $foundUser = null;
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'])) {
+    // To find a user data by username on index.php page
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'])) {
         $username = trim($_POST['username']);
         $searchQuery = "SELECT * FROM users WHERE username = :username LIMIT 1";
         $searchStmt = $pdo->prepare($searchQuery);

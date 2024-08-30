@@ -1,5 +1,5 @@
 <?php
-
+// user-update
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = htmlspecialchars($_POST["id"]);
     $username = htmlspecialchars($_POST["username"]);
@@ -19,7 +19,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $stmt->execute();
 
-            // Closing connections
             $pdo = null;
             $stmt = null;
 

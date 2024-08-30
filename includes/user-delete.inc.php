@@ -1,5 +1,5 @@
 <?php
-
+// user-delete
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $id = htmlspecialchars($_GET["id"]);
 

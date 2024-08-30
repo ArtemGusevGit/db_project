@@ -1,5 +1,5 @@
 <?php
-
+// Get user data on user-update.php page by user id
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $id = htmlspecialchars($_GET["id"]);
 
