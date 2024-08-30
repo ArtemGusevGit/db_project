@@ -42,6 +42,36 @@ try {
 
 <section class="p-4">
 
+    <?php if (isset($_GET['error']) && $_GET['error'] == 'userexists'): ?>
+        <div class="alert alert-danger mt-3">
+            <strong>Error:</strong> Username or email already exists.
+        </div>
+    <?php endif; ?>
+
+    <?php if (isset($_GET['success']) && $_GET['success'] == 'usercreated'): ?>
+        <div class="alert alert-success mt-3">
+            <strong>Success:</strong> User created successfully.
+        </div>
+    <?php endif; ?>
+
+    <?php if (isset($_GET['error']) && $_GET['error'] == 'invalidinput'): ?>
+        <div class="alert alert-danger mt-3">
+            <strong>Error:</strong> Invalid input. Please try again.
+        </div>
+    <?php endif; ?>
+
+    <?php if ($foundUser): ?>
+        <div class="alert alert-success mt-3">
+            <strong>Email found:</strong> <?php echo htmlspecialchars($foundUser['email']); ?>
+            <br/>
+            <strong>ID:</strong> <?php echo htmlspecialchars($foundUser['id']); ?>
+        </div>
+    <?php elseif ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
+        <div class="alert alert-danger mt-3">
+            <strong>No email found with that user.</strong>
+        </div>
+    <?php endif; ?>
+
 
     <table class="table">
         <thead>
@@ -91,24 +121,6 @@ try {
         </div>
     </form>
 
-    <?php if (isset($_GET['error']) && $_GET['error'] == 'userexists'): ?>
-        <div class="alert alert-danger mt-3">
-            <strong>Error:</strong> Username or email already exists.
-        </div>
-    <?php endif; ?>
-
-    <?php if (isset($_GET['success']) && $_GET['success'] == 'usercreated'): ?>
-        <div class="alert alert-success mt-3">
-            <strong>Success:</strong> User created successfully.
-        </div>
-    <?php endif; ?>
-
-    <?php if (isset($_GET['error']) && $_GET['error'] == 'invalidinput'): ?>
-        <div class="alert alert-danger mt-3">
-            <strong>Error:</strong> Invalid input. Please try again.
-        </div>
-    <?php endif; ?>
-
 
     <form action="" class="p-3" method="post">
         <h3>Find email and id by username</h3>
@@ -123,18 +135,6 @@ try {
         </div>
     </form>
 
-
-    <?php if ($foundUser): ?>
-        <div class="alert alert-success mt-3">
-            <strong>Email found:</strong> <?php echo htmlspecialchars($foundUser['email']); ?>
-            <br/>
-            <strong>ID:</strong> <?php echo htmlspecialchars($foundUser['id']); ?>
-        </div>
-    <?php elseif ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
-        <div class="alert alert-danger mt-3">
-            <strong>No email found with that user.</strong>
-        </div>
-    <?php endif; ?>
 
 </section>
 
