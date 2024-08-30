@@ -87,7 +87,7 @@ try {
             <input class="form-control" id="password" name="password" type="password" placeholder="password" required>
         </div>
         <div class="d-flex justify-content-end mt-2">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Add</button>
         </div>
     </form>
 
@@ -119,7 +119,7 @@ try {
         </div>
 
         <div class="d-flex justify-content-end mt-2">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Find</button>
         </div>
     </form>
 
