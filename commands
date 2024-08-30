@@ -1,0 +1,27 @@
+// CREATE A NEW TABLE
+CREATE TABLE rating (
+	id INT(11) NOT NULL AUTO_INCREMENT,
+    rating INT(2) NOT NULL,
+    username VARCHAR(30) NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIME,
+    user_id int(11),
+    PRIMARY KEY(id),
+    FOREIGN KEY(user_id) REFERENCES users (id) ON DELETE SET NULL
+);
+
+INSERT INTO users (username, pwd, email) VALUES ('user', 'user123', 'user@mail.ru');
+INSERT INTO comments (username, comment_message, user_id) VALUES ('Toms', 'comment from Tom', 6);
+UPDATE users SET username='new updated', pws='new updated' WHERE id = 4
+DELETE FROM users WHERE id = ???
+
+// FIND A USER AND SHOW IT IN CONSOLE
+SELECT username, email FROM users WHERE id = 2;
+// FIND ALL
+SELECT * FROM users WHERE id = 2;
+
+//JOIN 2 TABLES
+SELECT * FROM users INNER JOIN comments ON users.id = comments.user_id;
+// or (to see all users)
+SELECT * FROM users LEFT JOIN comments ON users.id = comments.user_id;
+// or (to see all comments)
+SELECT * FROM users RIGHT JOIN comments ON users.id = comments.user_id;
