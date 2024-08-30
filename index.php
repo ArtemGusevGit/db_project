@@ -22,7 +22,7 @@ try {
     $stmt = null;
 
 } catch (PDOException $e) {
-    die("Ошибка: " . $e->getMessage());
+    die("Error: " . $e->getMessage());
 }
 ?>
 
